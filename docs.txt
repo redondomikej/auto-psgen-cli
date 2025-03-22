@@ -1,0 +1,101 @@
+
+
+tree /F /A command to get the project structure
+
+----------------------------------------------------------------
+C:.
+|   createStructure.js = >automate the structure of my project folder
+|   docs.txt = >my docs 
+|   LICENSE.txt
+|   runner.js => this will automate the run of the script createStructure , template and template_override
+|   template.js  => this will upload or copy the template folder and its files to structured project folder
+|   template_override.js a the purpose of this is to copy the data from the template folder and used it in the files of project folder
+|   
+\---template
+        .gitignore
+        dependencies.txt
+        devDependencies.txt
+        generate_summary.js
+        LICENSE
+        newman_runner.js
+        package.json
+        README copy.md
+        README.md
+        run_dependencies.txt
+        run_tests.js
+
+----------------------------------------------------------------
+
+convert your scripts into an NPM package so you can easily call them using npx or install them globally for use anywhere. Here’s how you can do it:
+🚀 Steps to Make Your Scripts Usable via NPM
+1️⃣ Initialize an NPM Package
+Run this command inside your project folder:
+npm init -y
+This will create a package.json file.
+
+2️⃣ Modify package.json to Add CLI Commands
+Edit package.json and add a "bin" s section to define the command for your CLI:
+{
+  "name": "auto-psgen-cli",
+  "version": "1.1.0",
+  "description": "A CLI tool to automate project structure setup for API test",
+  "main": "runner.js",
+  "bin": {
+    "create-structure": "runner.js"
+  },
+  "scripts": {
+    "start": "node runner.js"
+  },
+  "keywords": [
+    "cli",
+    "automation",
+    "project-structure"
+  ],
+  "author": "Mike EJ Redondo",
+  "license": "MIT"
+}
+This setup specifies that the create-structure command will run the runner.js file.
+
+3️⃣ Make Scripts Executable
+At the top of each script file (e.g., createStructure.js, runner.js, etc.), add the following line to make it executable via the command line:
+#!/usr/bin/env node
+This line ensures that the script is run as a Node.js executable when called from the CLI.
+
+4️⃣ Install Locally for Testing
+Run:
+npm link
+This will allow you to call the CLI commands without needing to publish the package.
+
+5️⃣ Testing Your CLI Commands Locally
+Once the package is linked, you can use the following commands:
+
+create-structure - Runs createStructure.js
+copy-template - Runs template.js
+override-template - Runs template_override.js
+
+6️⃣ Publishing to NPM (Optional)
+Once you're ready to publish your package, follow these steps:
+
+Login to npm: If you haven't already, login to your npm account:
+npm login
+Publish your package: After logging in, publish the package using:
+npm publish
+
+This will upload your package to npm's registry, making it available for installation globally or via npx.
+
+Installation
+You can install auto-psgen-cli globally on your system by running:
+npm install -g auto-psgen-cli
+Alternatively, you can use npx to run the tool without installing it globally:
+npx create-structure
+This will execute the CLI without the need for a global installation.
+License
+This project is licensed under the MIT License. For more details, please see the LICENSE file in the repository.
+
+Author
+Mike EJ Redondo
+📧 [redondomikej@gmail.com]
+📞 Mobile: 09169045914
+🔗 LinkedIn Profile
+🏠 Location: Philippines
+

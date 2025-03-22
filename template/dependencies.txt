@@ -1,0 +1,8 @@
+newman@latest
+json2csv@latest
+newman-reporter-htmlextra@latest
+csv-parser@latest
+csv-writer@latest
+fast-speedtest-api@latest
+path@latest
+fs@latest

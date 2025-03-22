@@ -1,0 +1,2 @@
+Get-Content dependencies.txt | ForEach-Object { npm install $_ }
+Get-Content devDependencies.txt | ForEach-Object { npm install $_ --save-dev }

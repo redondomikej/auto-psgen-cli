@@ -1,0 +1,11 @@
+{
+  "name": "api-testing",
+  "version": "1.0.0",
+  "description": "API Testing using Newman with Data-Driven Testing",
+  "scripts": {
+    "test": "node scripts/tests/run_tests.js",
+    "report": "node scripts/reports/generate_summary.js"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
