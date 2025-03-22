@@ -1,0 +1,6 @@
+
+#### 📁 **`templates/root/.gitignore`**
+```gitignore
+node_modules/
+reports/
+.env
